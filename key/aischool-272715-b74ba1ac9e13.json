@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "aischool-272715",
+  "private_key_id": "b74ba1ac9e13cf2137770fbf94256f07e2cefa69",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDOJ0i3jR6+XxRt\nhlEmquhIlmbro+3Rb8oiSKQU01U3u3ySu6NpHVNh0zFeNLlDIMtaiM8MBvycVr/o\nRcnLoM83b9cVzm1qHKJAxw1kmvV+rmV8nKIerbVgTt6bJTaq8Z5bRQSJraau18YE\nEoLAFUN3yY875ASf98g9T6QIw368gnTB4BM8hzERRTT5l0LuF87fG+zmD6K7gEHC\nCqotgrAohYYAvMx96cMqqNjbUnVxMV6eFNqzgf4NSxjpdN19q/xmA/bpfFUZccKR\nsxOMg+8hMQHawKG3tEDGD+9WvP4ZcZzuwov2LNK4vCseSRUA9EForoRho6J88oPD\njszfDYWtAgMBAAECggEAJoD213WPnu3iQlyabpbwQJJ60ZsyEXKINeQMZWldWsX1\nS/Co4jqcdsJ7z4UYbx3CbXvs8+mgJ9EaEddrC9HSsh989DE0hWOouGGVMkuw+4K2\nKNKWgxVdsYm5kQ+fyMjNE23uHYrl/XUGon8UlazDB64JRx3c8UXVzAHCePKOisWa\n18sRSdlzy61sdzeeBlJtFv2dIx7efGDiARqpLUnyZtraAacr4r/TUhuDPlOZ+X3I\nr1D1+KAH+6MHXl01+6BZLSnFTnHazFnjGjOf/LG5eB95ubrtVbvZ9J/Njk/CdN3x\nG0vMVp2vZ62fKwUepmnFFR5NSvtX+dtUMIeGRKlqsQKBgQD4LcriVlDp+/sxOhpQ\nLIgTAU+U7KqiQUUaVhGIyQDrsZ/XOpZEYiSoVL3/hx/qFbGzQWp17JrYblPbSVTf\nNTEZLR4DmdcUd2HFspe8WnlfHAvJmmQWTUqiKIkXsCxpkfNu+gzMbGCnqfFAmVC+\nBjB4ysIP/gh0M73moY1kRjuo+QKBgQDUpnKCJGKEwaC4yeQiPjYDjS4laMXaaz+x\n37gfkExxWF4esjcwYreFBK9Z6aHqoUiurL4xgQn/iGDTakJDrgWa4T9+wHwOkhcx\nlXaV0Plgzz2BF1h5tV126Qgurr7+XOHjbwdM229/PX5SNX18f7fHbVepnsT/5OUO\nJ/DOlL+DVQKBgB25FkhfQBeV5zKxG7+oZa+pA4f5hEIkgQszbawtLqALyPH1AVQ1\nUOCcLZkx7L+TU5H9bquq56yuIfrsYG7PJw812RdjUGASIDKWPhf/2fNrH3pItF37\nacncAvdEUT1fjoEnD2tYO4c5EjzDX+kyQpHk7rMNoKOSItdBV/a/dpu5AoGBAIIb\nfQBHhse3OMEXNbAF5EJ0BQH6guPKruQD/8HAJiVLbfrWC5JdM+/9F9Spb9oA6FmH\nc68SRq3EIYn4/6YtOVyz6IeC+eRoWiyKSE4N2Cb1ZaowQH/nCdKRbeIyJMW4yrS+\n3/aUZDmzxDBEbgzYj/dC3Vn4vIvc3pC0u0+KD0spAoGBAJX5tkrpkw7GE9v/LBSg\nLSh5cRF6cktoRPy3XKO45J+maKS+3zeqVSALVNx9096NXl5SbyrtV+sTpNZ6T08r\nkK89uZ8/MR4SeCxLnYnjCt0T4Poh9wfxTfrMwjgWFS/A2F9FB2eMtMcvL6Mgk+zM\naVSfalax1VlKhmc8T9KQbogM\n-----END PRIVATE KEY-----\n",
+  "client_email": "mrusso@aischool-272715.iam.gserviceaccount.com",
+  "client_id": "117586674022197191580",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mrusso%40aischool-272715.iam.gserviceaccount.com"
+}
