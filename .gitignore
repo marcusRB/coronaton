@@ -123,3 +123,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Credential files:
+**/GoogleService-Info*.plist*
+**/google-services*.json*
+/key
