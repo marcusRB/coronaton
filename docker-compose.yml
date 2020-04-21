@@ -1,6 +1,3 @@
 app:
-  build: .
-  volumes:
-    - "$PWD:/usr/src/app"
-    - "$HOME:/home"
+
 
