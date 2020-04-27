@@ -5,9 +5,12 @@ from google.oauth2 import service_account
 import pandas as pd
 import os
 
-# Construct a BigQuery client object.
-proj_ID = 'aischool-272715'
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '../DS/Challenges/CORONATON/key/credentials.json'
+## Construct a BigQuery client object. 
+
+## Set SANDBOX DALCON
+
+proj_ID = 'sandbox-dalcon'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
 #!export GOOGLE_APPLICATION_CREDENTIALS = '/home/jovyan/DS/Challenges/CORONATON/key/credentials.json'
 #creds = service_account.Credentials.from_service_account_file('key/credentials.json')
 #scoped_credentials = creds.with_scopes(
@@ -60,7 +63,7 @@ job_config = bigquery.LoadJobConfig(
     # The source format defaults to CSV. The line below is optional.
     source_format=bigquery.SourceFormat.CSV
 )
-uri = 'gs://dev_bucket_aischool/natality*'
+uri = 'gs://coronaton/natalidad*'
 tableName = "natal"
 dataset_ref_table = dataset_ref.table(tableName)
 load_job = client.load_table_from_uri(uri, dataset_ref_table, job_config=job_config)  # API request
@@ -258,5 +261,5 @@ data = df1.join(df2.iloc[:,1:])
 data = data.join(df3.iloc[:,1:])
 
 # Write destination
-destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv'
+destination = f'gs://coronaton/output/mrusso@paradigmadigital.csv'
 data.to_csv(destination, index=None, encoding="UTF-8", sep=",")
