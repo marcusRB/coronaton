@@ -9,7 +9,10 @@ import os
 
 ## Set SANDBOX DALCON
 
-proj_ID = 'sandbox-dalcon'
+#proj_ID = 'sandbox-dalcon'
+
+proj_ID = 'aischool-272715' # set marcusRB projectID
+
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
 #!export GOOGLE_APPLICATION_CREDENTIALS = '/home/jovyan/DS/Challenges/CORONATON/key/credentials.json'
 #creds = service_account.Credentials.from_service_account_file('key/credentials.json')
@@ -63,7 +66,8 @@ job_config = bigquery.LoadJobConfig(
     # The source format defaults to CSV. The line below is optional.
     source_format=bigquery.SourceFormat.CSV
 )
-uri = 'gs://coronaton/natalidad*'
+#uri = 'gs://coronaton/natalidad*'
+uri = 'gs://coronaton/natality*'
 tableName = "natal"
 dataset_ref_table = dataset_ref.table(tableName)
 load_job = client.load_table_from_uri(uri, dataset_ref_table, job_config=job_config)  # API request
