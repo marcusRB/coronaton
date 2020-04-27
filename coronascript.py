@@ -3,6 +3,7 @@ from google.cloud import bigquery
 # Importamos la librería de cuenta de servicios de BQ
 from google.oauth2 import service_account
 import pandas as pd
+import gcsfs
 import os
 
 ## Construct a BigQuery client object. 
