@@ -10,7 +10,7 @@ import os
 
 ## Set SANDBOX DALCON
 
-#proj_ID = 'sandbox-dalcon'
+#proj_ID = 'sandbox-dalcon' # set dalcon proj
 
 proj_ID = 'aischool-272715' # set marcusRB projectID
 
@@ -268,9 +268,12 @@ data = df1.join(df2.iloc[:,1:])
 data = data.join(df3.iloc[:,1:])
 
 # Write destination
+import dask.dataframe as dd
+ddf = data.from_pandas(data, npartitions=1, sort=True)
+#destination = 'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
 destination = 'gs://aischool_dataoutput/mrusso@paradigmadigital.csv'
-data.to_csv(destination, index=None, encoding="UTF-8", sep=",")
-#destination = f'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
+dd.to_csv(destination, index=None, encoding="UTF-8", sep=",")
+
 #destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv' #marcusrb prj
 
 

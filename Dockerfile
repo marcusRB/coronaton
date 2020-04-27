@@ -11,7 +11,7 @@ RUN pip3 install --upgrade google-cloud-bigquery
 RUN pip3 install --upgrade google-oauth2-tool
 RUN pip3 install --upgrade gcsfs
 RUN pip3 install --upgrade pandas
-
+RUN pip3 install --upgrade dask 
 #COPY ./requirements.txt requirements.txt
 #RUN pip3 install -r requirements.txt
 
