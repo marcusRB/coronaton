@@ -261,10 +261,11 @@ data = df1.join(df2.iloc[:,1:])
 data = data.join(df3.iloc[:,1:])
 
 # Write to GCS
-import dask.dataframe as dd
-import gcsfs
-ddf = dd.from_pandas(data, npartitions=1, sort=True)
 
-#destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital-2.csv'
+#import dask.dataframe as dd
+import gcsfs
+#ddf = dd.from_pandas(data, npartitions=1, sort=True)
+#data.to_csv('gs://aischool_dataoutput/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
+data.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
 #ddf.to_csv('gs://aischool_dataoutput/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
-ddf.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",") # dalcon project
+#ddf.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",") # dalcon project
