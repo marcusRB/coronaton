@@ -13,6 +13,8 @@ import os
 # Guardamos la variable proj ID 
 proj_ID = 'aischool-272715'
 
+# proj_ID = 'sandbox-dalcon'
+
 #client = bigquery.Client(credentials=creds, project=proj_ID)
 client = bigquery.Client()
 datasets = list(client.list_datasets())  # Make an API request.
@@ -40,7 +42,6 @@ def deleteDataset(dataset_id):
 
 
 # Construct a BigQuery client object.
-proj_ID = 'aischool-272715'
 dataID = 'natal'
 dataset_id = "{0}.{1}".format(client.project, dataID)
 
@@ -65,7 +66,10 @@ job_config = bigquery.LoadJobConfig(
     # The source format defaults to CSV. The line below is optional.
     source_format=bigquery.SourceFormat.CSV
 )
-uri = 'gs://dev_bucket_aischool/natality*'
+
+
+uri = 'gs://dev_bucket_aischool/natality*' # marcusRB GCS
+#uri = 'gs://coronaton/data/natalidad*' # dalcon proj.
 tableName = "natal"
 dataset_ref_table = dataset_ref.table(tableName)
 load_job = client.load_table_from_uri(
