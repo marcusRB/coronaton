@@ -10,7 +10,7 @@ import os
 ## Set SANDBOX DALCON
 
 proj_ID = 'sandbox-dalcon'
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
 #!export GOOGLE_APPLICATION_CREDENTIALS = '/home/jovyan/DS/Challenges/CORONATON/key/credentials.json'
 #creds = service_account.Credentials.from_service_account_file('key/credentials.json')
 #scoped_credentials = creds.with_scopes(
