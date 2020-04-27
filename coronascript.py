@@ -6,15 +6,28 @@ import pandas as pd
 import gcsfs
 import os
 
-## Construct a BigQuery client object. 
 
-## Set SANDBOX DALCON
+# set envirnoment
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
+
+
+## set global vars
 
 #proj_ID = 'sandbox-dalcon' # set dalcon proj
-
 proj_ID = 'aischool-272715' # set marcusRB projectID
+dataID = 'natalidad'
+tableName = "natal"
 
-#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
+## set bucket storage input
+# uri = 'gs://coronaton/data/natalidad*' # dalcon-project 
+uri = 'gs://dev_bucket_aischool/natality*' # marcusRB project
+
+## set bucket storage output
+#destination = 'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
+destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv' #marcusrb prj
+
+## Construct a BigQuery client object. 
+
 #!export GOOGLE_APPLICATION_CREDENTIALS = '/home/jovyan/DS/Challenges/CORONATON/key/credentials.json'
 #creds = service_account.Credentials.from_service_account_file('key/credentials.json')
 #scoped_credentials = creds.with_scopes(
@@ -26,7 +39,7 @@ client = bigquery.Client()
 ## CREATE DATASET
 datasets = list(client.list_datasets())  # Make an API request.
 project = client.project
-dataID = 'natalidad'
+
 dataset_id = "{0}.{1}".format(client.project, dataID)
 
 def createDataset(dataID, dataset_id):
@@ -68,9 +81,8 @@ job_config = bigquery.LoadJobConfig(
     source_format=bigquery.SourceFormat.CSV
 )
 
-## uri = 'gs://coronaton/data/natalidad*' # dalcon-project 
-uri = 'gs://dev_bucket_aischool/natality*' # marcusRB project
-tableName = "natal"
+
+
 dataset_ref_table = dataset_ref.table(tableName)
 load_job = client.load_table_from_uri(
     uri, dataset_ref_table, job_config=job_config
@@ -271,9 +283,8 @@ data = data.join(df3.iloc[:,1:])
 import dask.dataframe as dd
 ddf = data.from_pandas(data, npartitions=1, sort=True)
 #destination = 'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
-destination = 'gs://aischool_dataoutput/mrusso@paradigmadigital.csv'
+destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv'
 dd.to_csv(destination, index=None, encoding="UTF-8", sep=",")
 
-#destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv' #marcusrb prj
 
 
