@@ -5,15 +5,15 @@ from google.oauth2 import service_account
 import pandas as pd
 import os
 
-
+# CARGANDO ENTORNO DALCON
 
 # set envirnoment
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/jovyan/coronaton/key/credentials.json'
 
 # Guardamos la variable proj ID 
-proj_ID = 'aischool-272715'
+#proj_ID = 'aischool-272715'
 
-# proj_ID = 'sandbox-dalcon'
+proj_ID = 'sandbox-dalcon'
 
 #client = bigquery.Client(credentials=creds, project=proj_ID)
 client = bigquery.Client()
@@ -68,8 +68,8 @@ job_config = bigquery.LoadJobConfig(
 )
 
 
-uri = 'gs://dev_bucket_aischool/natality*' # marcusRB GCS
-#uri = 'gs://coronaton/data/natalidad*' # dalcon proj.
+#uri = 'gs://dev_bucket_aischool/natality*' # marcusRB GCS
+uri = 'gs://coronaton/data/natalidad*' # dalcon proj.
 tableName = "natal"
 dataset_ref_table = dataset_ref.table(tableName)
 load_job = client.load_table_from_uri(
@@ -263,6 +263,7 @@ data = data.join(df3.iloc[:,1:])
 # Write to GCS
 import dask.dataframe as dd
 ddf = dd.from_pandas(data, npartitions=1, sort=True)
-#destination = 'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
+
 #destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital-2.csv'
-ddf.to_csv('gs://aischool_dataoutput/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
+#ddf.to_csv('gs://aischool_dataoutput/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
+ddf.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",") # dalcon project
