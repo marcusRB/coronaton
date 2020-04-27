@@ -8,7 +8,7 @@ import os
 
 
 # set envirnoment
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/jovyan/coronaton/key/credentials.json'
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/jovyan/coronaton/key/credentials.json'
 
 # Guardamos la variable proj ID 
 proj_ID = 'aischool-272715'
