@@ -257,5 +257,8 @@ data = df1.join(df2.iloc[:,1:])
 data = data.join(df3.iloc[:,1:])
 
 # Write to GCS
-destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv'
-data.to_csv(destination, index=None, encoding="UTF-8", sep=",")
+import dask.dataframe as dd
+ddf = dd.from_pandas(data, npartitions=1, sort=True)
+#destination = 'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
+destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital-2.csv'
+ddf.to_csv(destination, index=None, encoding="UTF-8", sep=",")
