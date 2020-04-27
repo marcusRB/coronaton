@@ -8,7 +8,7 @@ import os
 
 
 # set envirnoment
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
 
 
 ## set global vars
