@@ -268,6 +268,10 @@ data = data.join(df3.iloc[:,1:])
 
 # Write destination
 import gcsfs
+fs = gcsfc.GCSFileSystem(project=proj_ID)
+with fs.open('gs://aischool_dataoutput/mrusso@paradigmadigital.csv') as f:
+	data.to_csv(f, index=None, encoding="UTF-8", sep=",")
 #destination = f'gs://coronaton/output/mrusso@paradigmadigital.csv' # dalcon project
-destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv' #marcusrb prj
-data.to_csv(destination, index=None, encoding="UTF-8", sep=",")
+#destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital.csv' #marcusrb prj
+
+
