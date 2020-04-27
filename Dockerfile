@@ -10,6 +10,7 @@ RUN apt-get -y install python3-pip
 RUN pip3 install --upgrade google-cloud-bigquery
 RUN pip3 install --upgrade google-oauth2-tool
 RUN pip3 install --upgrade pandas
+RUN pip3 install --upgrade gcsfs
 RUN python -m pip install "dask[dataframe]"
 #COPY ./requirements.txt requirements.txt
 #RUN pip3 install -r requirements.txt

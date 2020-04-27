@@ -262,6 +262,7 @@ data = data.join(df3.iloc[:,1:])
 
 # Write to GCS
 import dask.dataframe as dd
+import gcsfs
 ddf = dd.from_pandas(data, npartitions=1, sort=True)
 
 #destination = f'gs://aischool_dataoutput/mrusso@paradigmadigital-2.csv'
