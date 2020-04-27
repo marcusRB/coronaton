@@ -9,9 +9,9 @@ import os
 
 ## Set SANDBOX DALCON
 
-proj_ID = 'sandbox-dalcon'
+#proj_ID = 'sandbox-dalcon'
 
-#proj_ID = 'aischool-272715' # set marcusRB projectID
+proj_ID = 'aischool-272715' # set marcusRB projectID
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'gs://aischool_dataoutput/key/credentials.json'
 #!export GOOGLE_APPLICATION_CREDENTIALS = '/home/jovyan/DS/Challenges/CORONATON/key/credentials.json'
@@ -25,7 +25,7 @@ client = bigquery.Client()
 ## CREATE DATASET
 datasets = list(client.list_datasets())  # Make an API request.
 project = client.project
-dataID = 'natal'
+dataID = 'natalidad'
 dataset_id = "{0}.{1}".format(client.project, dataID)
 
 def createDataset(dataID, dataset_id):
@@ -67,18 +67,19 @@ job_config = bigquery.LoadJobConfig(
     source_format=bigquery.SourceFormat.CSV
 )
 
-uri = 'gs://coronaton/data/natalidad*'
-
+## uri = 'gs://coronaton/data/natalidad*' # dalcon-project 
+uri = 'gs://dev_bucket_aischool/natality*' # marcusRB project
 tableName = "natal"
 dataset_ref_table = dataset_ref.table(tableName)
-load_job = client.load_table_from_uri(uri, dataset_ref_table, job_config=job_config)  # API request
+load_job = client.load_table_from_uri(
+    uri, dataset_ref_table, job_config=job_config
+)  # API request
 print("Starting job {}".format(load_job.job_id))
 
 load_job.result()  # Waits for table load to complete.
 print("Job finished.")
 
-
-table = client.get_table(dataset_ref_table)  # Make an API request.
+table = client.get_table(dataset_ref_table)  # Make an API request.  # Make an API request.
 
 
 # Define the query1
