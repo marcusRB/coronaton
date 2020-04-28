@@ -11,8 +11,6 @@ import os
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/jovyan/coronaton/key/credentials.json'
 
 # Guardamos la variable proj ID 
-#proj_ID = 'aischool-272715'
-
 proj_ID = 'sandbox-dalcon'
 
 #client = bigquery.Client(credentials=creds, project=proj_ID)
@@ -20,13 +18,13 @@ client = bigquery.Client()
 datasets = list(client.list_datasets())  # Make an API request.
 project = client.project
 
-
+## Define functions DataSets create - delete
 def createDataset(dataID, dataset_id):
 
     # Construct a full Dataset object to send to the API.
     dataset = bigquery.Dataset(dataset_id)
 
-    # TODO(developer): Specify the geographic location where the dataset should reside.
+    # Specify the geographic location where the dataset should reside.
     dataset.location = "US"
 
     # Send the dataset to the API for creation.
@@ -57,6 +55,8 @@ else:
 
 
 dataset_ref = client.dataset(dataID)
+
+
 # Configure the load job
 job_config = bigquery.LoadJobConfig(
     autodetect = True,
@@ -67,14 +67,11 @@ job_config = bigquery.LoadJobConfig(
     source_format=bigquery.SourceFormat.CSV
 )
 
-
-#uri = 'gs://dev_bucket_aischool/natality*' # marcusRB GCS
+## Create Table
 uri = 'gs://coronaton/data/natalidad*' # dalcon proj.
 tableName = "natal"
 dataset_ref_table = dataset_ref.table(tableName)
-load_job = client.load_table_from_uri(
-    uri, dataset_ref_table, job_config=job_config
-)  # API request
+load_job = client.load_table_from_uri(uri, dataset_ref_table, job_config=job_config)  # API request
 print("Starting job {}".format(load_job.job_id))
 
 load_job.result()  # Waits for table load to complete.
@@ -261,11 +258,5 @@ data = df1.join(df2.iloc[:,1:])
 data = data.join(df3.iloc[:,1:])
 
 # Write to GCS
-
-#import dask.dataframe as dd
 import gcsfs
-#ddf = dd.from_pandas(data, npartitions=1, sort=True)
-#data.to_csv('gs://aischool_dataoutput/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
 data.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
-#ddf.to_csv('gs://aischool_dataoutput/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
-#ddf.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",") # dalcon project
