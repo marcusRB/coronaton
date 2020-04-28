@@ -45,3 +45,22 @@ docker pull gcr.io/[PROJECT-ID]/coronascript
 time docker run gcr.io/aischool-272715/coronascript
 ```
 
+* * *
+## Entorno Cloud Storage
+
+- La carpeta `/data` para los archivos (natalidad*, race*, sex*)
+
+- La carpeta `/output` para la salida del fichero generado tipo *name@hostname.ext* 
+
+
+## Permisos IAM - Service Account habilitado en dev
+
+- Editor
+- Cloud Storage Creator
+- certificado de registry
+
+
+## Virtual Machine habilitada
+
+
+
