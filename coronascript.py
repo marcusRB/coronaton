@@ -40,7 +40,7 @@ def deleteDataset(dataset_id):
 
 
 # Construct a BigQuery client object.
-dataID = 'natal'
+dataID = 'natality'
 dataset_id = "{0}.{1}".format(client.project, dataID)
 
 bq_dataset = []
@@ -260,3 +260,6 @@ data = data.join(df3.iloc[:,1:])
 # Write to GCS
 import gcsfs
 data.to_csv('gs://coronaton/output/mrusso@paradigmadigital.csv', index=None, encoding="UTF-8", sep=",")
+
+# Remove dataset
+deleteDataset(dataset_id)
